@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PanierController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/***CLIENT */
+// page acceuil site client
 Route::get('/', [UserHomeController::class, 'index'])->name('home');
-Route::get('/admin', [DashboardController::class, 'index'])->name('home');
-
+// interface panier client
 Route::get('/panier', [PanierController::class, 'index'])->name('panier');
+Route::get('/client', [ClientController::class, 'index'])->name('client');
+
+/****ADMIN */
+// page admin 
+Route::get('/admin', [DashboardController::class, 'index'])->name('home');
 
 
