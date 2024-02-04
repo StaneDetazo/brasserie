@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PanierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserHomeController::class, 'index'])->name('home');
 Route::get('/admin', [DashboardController::class, 'index'])->name('home');
+
+Route::get('/panier', [PanierController::class, 'index'])->name('panier');
+
 
