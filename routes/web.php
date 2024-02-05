@@ -38,7 +38,10 @@ route::group(['middleware' => 'auth'], function () {
 
 /****ADMIN */
 // page admin 
-Route::get('/admin', [DashboardController::class, 'index'])->name('acceuilAdmin');
+// Route::get('/admin', [DashboardController::class, 'index'])->name('acceuilAdmin');
+Route::get('/admin/login', [DashboardController::class, 'login'])->name('login');
+Route::get('/admin/signUp', [DashboardController::class, 'signup'])->name('signUp');
+Route::post('/admin/signUp/create', [DashboardController::class, 'createGrossiste'])->name('createGrossiste');
 
 
 
