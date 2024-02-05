@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ClientController extends Controller
 {
@@ -61,5 +64,43 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function PageInscription () {
+        //page d'inscription client
+        return view('userSite.Comptes.inscription');
+    }
+
+    public function inscription ( Request $request ) {
+        //
+        $user = new User();
+
+        $user->name = $request->nom;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->motPasse);            
+        
+        $user->save();
+
+        return redirect('/')->with('success', 'inscription réussie');
+    }
+
+    public function connexion ( Request $request ) {
+        //
+        $credetials = [
+            'email' => $request->email,
+            'password' => $request->motPasse,
+        ];
+            // dd($credetials);
+        if (Auth::attempt($credetials)) {
+            return redirect('/panier')->with('success', 'connexion réussi');
+        }
+
+        return back()->with('error', 'Email ou mot de passe incorrect');
+    }
+
+    public function deconnexion () {
+        Auth::logout();
+        request()->session()->forget('user');
+        return redirect('/')->with('success', 'déconnexion réussi');
     }
 }

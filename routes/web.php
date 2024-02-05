@@ -19,13 +19,29 @@ use Illuminate\Support\Facades\Route;
 
 /***CLIENT */
 // page acceuil site client
-Route::get('/', [UserHomeController::class, 'index'])->name('home');
+Route::get('/', [UserHomeController::class, 'index'])->name('acceuilclient');
 // interface panier client
-Route::get('/panier', [PanierController::class, 'index'])->name('panier');
 Route::get('/client', [ClientController::class, 'index'])->name('client');
+
+// inscription et connexion
+route::group(['middleware' => 'guest'], function () {
+    Route::get('/inscription', [ClientController::class, 'pageInscription'])->name('inscription');
+    Route::post('/inscrire', [ClientController::class, 'inscription'])->name('inscrire');
+    Route::post('/connexion', [ClientController::class, 'connexion'])->name('connexion');
+});
+
+route::group(['middleware' => 'auth'], function () {
+    Route::get('/panier', [PanierController::class, 'index']);
+    Route::delete('deconnexion', [ClientController::class, 'deconnexion']);
+});
+
 
 /****ADMIN */
 // page admin 
-Route::get('/admin', [DashboardController::class, 'index'])->name('home');
+Route::get('/admin', [DashboardController::class, 'index'])->name('acceuilAdmin');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
