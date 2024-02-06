@@ -92,7 +92,7 @@ class ClientController extends Controller
         ];
             // dd($credetials);
         if (Auth::attempt($credetials)) {
-            return redirect('/panier')->with('success', 'connexion réussi');
+            return redirect('/')->with('success', 'connexion réussi');
         }
 
         return back()->with('error', 'Email ou mot de passe incorrect');

@@ -22,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserHomeController::class, 'index'])->name('acceuilclient');
 // interface panier client
 Route::get('/client', [ClientController::class, 'index'])->name('client');
+    Route::get('/panier', [PanierController::class, 'index'])->name('panier');
+    Route::get('filtreproduit', [PanierController::class, 'filtrer_produit'])->name('filtre.P');
+    Route::get('vider', [PanierController::class, 'vider_panier'])->name('vider.P');
+
+
 
 // inscription et connexion
 route::group(['middleware' => 'guest'], function () {
@@ -31,15 +36,18 @@ route::group(['middleware' => 'guest'], function () {
 });
 
 route::group(['middleware' => 'auth'], function () {
-    Route::get('/panier', [PanierController::class, 'index']);
     Route::delete('deconnexion', [ClientController::class, 'deconnexion']);
+    Route::get('produitpanier/{id_produit}', [PanierController::class, 'ajouterPanier'])->name('ajouterPanier.ajout');
+    Route::delete('supprimer/{libelle_produit}', [PanierController::class, 'delete_produit'])->name('supprimerProduits.P');
+
+    Route::post('/validercommande', [PanierController::class, 'validerCommande'])->name('commande.valider');
 });
 
 
 /****ADMIN */
 // page admin 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('acceuilAdmin');
-Route::get('/admin/login', [DashboardController::class, 'login'])->name('login');
+Route::get('/admin/login', [DashboardController::class, 'login'])->name('loginn');
 Route::get('/admin/signUp', [DashboardController::class, 'signup'])->name('signUp');
 Route::post('/admin/signUp/create', [DashboardController::class, 'createGrossiste'])->name('createGrossiste');
 
