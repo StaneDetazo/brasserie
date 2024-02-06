@@ -84,7 +84,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-                <form action="" method="POST"
+                <form action="{{route('createProduct')}}" method="POST"
                 enctype="multipart/form-data">
              
                 <div class="modal-body">
@@ -106,7 +106,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Quantité(cl/l)</label>
+                        <label for="" class="form-label">Capacité-bouteille(cl/l)</label>
                         <input type="text" class="form-control" id="" name=""
                             value="" required>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="float-right">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                        <button type="submit" class="btn btn-warning">Ajouter</button>
                     </div>
                 </div>
             </form>
