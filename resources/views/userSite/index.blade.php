@@ -97,7 +97,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="/dist/img/{{ $produits->image }}" alt="image du produit" />
+                        <img class="card-img-top" src="/images/{{ $produits->image }}" alt="image du produit" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

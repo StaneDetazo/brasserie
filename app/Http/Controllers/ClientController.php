@@ -15,7 +15,8 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('Admin.Clients.client');
+        $clients = User::all();
+        return view('Admin.Clients.client', compact('clients'));
     }
 
     /**
@@ -24,14 +25,54 @@ class ClientController extends Controller
     public function create()
     {
         //
+        return view('Admin.Client.createClient');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    // public function store(Request $request)
+    // {
+    //     //
+    //     $dataValid = $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required|string|unique:users,email',
+    //         'password' => 'required|min:8',
+    //         'contact' => 'required',
+    //         'adresse' => 'required',
+    //     ], [
+    //         'name.required' => 'Le champ nom est requis.',
+    //         'email.required' => 'Le champ email est requis.',
+    //         'email.unique' => 'Cet nom d utilisateur est déjà utilisée par un autre utilisateur.',
+    //         'password.required' => 'Le champ mot de passe est requis.',
+    //         'password.min' => 'Le mot de passe doit contenir au moins :min caractères.',
+    //         'contact.required' => 'Le champ contact est requis.',
+    //     ]);
+    //      // Hasher le mot de passe
+    //      $dataValid['password'] = bcrypt($dataValid['password']);
+
+
+    //      // Créer un nouvel utilisateur
+    //      User::create($dataValid);
+         
+     
+    //  return redirect('/admin/client')->with('success', 'Le personnel a été ajouté avec succès.');
+
+    // }
+
+    public function creer ( Request $request ) {
         //
+        $user = new User();
+
+        $user->name = $request->nom;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->motPasse);            
+        $user->contact = $request->motPasse;            
+        $user->adresse = $request->motPasse;            
+        
+        $user->save();
+
+        return back()->with('success', 'connexion réussie');
     }
 
     /**
@@ -78,6 +119,8 @@ class ClientController extends Controller
         $user->name = $request->nom;
         $user->email = $request->email;
         $user->password = Hash::make($request->motPasse);            
+        $user->contact = $request->motPasse;            
+        $user->adresse = $request->motPasse;            
         
         $user->save();
 

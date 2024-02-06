@@ -40,7 +40,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li>
-                    <a href="" class="nav-link active">
+                    <a href="/admin/acceuil" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -57,25 +57,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="/admin/produit" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Produits</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="/admin/categorie" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Categories</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="/admin/commande" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Personnels</p>
+                                <p>Commandes</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/client" class="nav-link">
+                            <a href="/admin/client" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Clients</p>
                             </a>

@@ -8,28 +8,33 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">AJOUTER</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST"
+            <form action="{{ route('ajouterclients') }}" method="POST"
                 enctype="multipart/form-data">
              
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="" class="form-label">Nom </label>
-                        <input type="text" class="form-control" id="" name=""
+                        <input type="text" class="form-control" id="" name="name"
                             value="" required>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Nomre de casier </label>
-                        <input type="text" class="form-control" id="" name=""
+                        <label for="" class="form-label">email </label>
+                        <input type="text" class="form-control" id="" name="email"
                             value="" required>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Quantité(casier)</label>
-                        <input type="text" class="form-control" id="" name=""
+                        <label for="" class="form-label">mot de passe</label>
+                        <input type="text" class="form-control" id="" name="password"
                             value="" required>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Prix(casier)</label>
-                        <input type="text" class="form-control" id="" name=""
+                        <label for="" class="form-label">contact</label>
+                        <input type="text" class="form-control" id="" name="contact"
+                            value="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">adresse</label>
+                        <input type="text" class="form-control" id="" name="adresse"
                             value="" required>
                     </div>
                     <div class="float-right">

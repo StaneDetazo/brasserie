@@ -27,10 +27,12 @@
 			<div class="signup">
 				<form action="{{ route('inscrire') }}" method="POST">
 					@csrf
-					<label for="chk" aria-hidden="true">S'inscrire</label>
+					<label for="chk" aria-hidden="true" style="margin-bottom: -20px;">S'inscrire</label>
 					<input type="text" name="nom" placeholder="Nom" required="">
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="motPasse" placeholder="Mot de passe" required="">
+					<input type="text" name="contact" placeholder="contact" required="">
+					<input type="text" name="adresse" placeholder="adresse" required="">
 					<button>S'incrire</button>
 				</form>
 			</div>

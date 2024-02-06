@@ -37,24 +37,21 @@
             <thead>
                 <tr class="table-primary">
                     <th>#</th>
-                    <th>//</th>
-                    <th>////</th>
-                    <th>/</th>
-                    <th>/</th>
-                    <th>/</th>
-                    <th>/</th>
+                    <th>NOM</th>
+                    <th>EMAIL</th>
+                    <th>CONTACT</th>
+                    <th>ADRESSE</th>
                     <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>e</td>
-                    <td>e</td>
-                    <td>e</td>
-                    <td>e</td>
-                    <td>e</td>
-                    <td>8 </td>
-                    <td>d</td>
+                    @foreach( $clients as $clients)
+                    <td>{{ $clients->id }}</td>
+                    <td>{{ $clients->name }}</td>
+                    <td>{{ $clients->email }}e</td>
+                    <td>{{ $clients->contact }}</td>
+                    <td>{{ $clients->adresse }}</td>
                     <td>
                         <form method="post" enctype="multipart/form-data">
                           
@@ -93,6 +90,7 @@
                 <!-- debut Modal suppression -->
                 @include('Admin.Clients.deleteClient')
                 <!-- fin modal suppression -->
+                @endforeach
                 <!-- debut Modal ajouter -->
                 @include('Admin.Clients.createClient')
                 <!-- fin modal ajouter -->
