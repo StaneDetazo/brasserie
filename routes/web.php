@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\UserHomeController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,10 +39,13 @@ route::group(['middleware' => 'auth'], function () {
 
 /****ADMIN */
 // page admin 
-// Route::get('/admin', [DashboardController::class, 'index'])->name('acceuilAdmin');
-Route::get('/admin/login', [DashboardController::class, 'login'])->name('login');
-Route::get('/admin/signUp', [DashboardController::class, 'signup'])->name('signUp');
-Route::post('/admin/signUp/create', [DashboardController::class, 'createGrossiste'])->name('createGrossiste');
+    Route::get('/admin/signup', [AdminController::class, 'signUpPage'])->name('signUpPage');
+    Route::post('/admin/signup', [AdminController::class, 'signUp'])->name('adminSignUp');
+    Route::get('/admin/login', [AdminController::class, 'loginPage'])->name('loginPage');
+    Route::post('/admin/login', [AdminController::class, 'login'])->name('adminLogin');
+    Route::get('/admin/acceuil', [AdminController::class, 'acceuil'])->name('adminAcceuil');
+    Route::get('/admin/commandes', [AdminController::class, 'mes_commandes'])->name('mesCommandes');
+    Route::get('/admin/addProduct', [AdminController::class, 'ajouter_produit'])->name('addProduct');
 
 
 
