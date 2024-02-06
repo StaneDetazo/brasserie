@@ -13,7 +13,22 @@
              
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="" class="form-label">test </label>
+                        <label for="" class="form-label">Nom </label>
+                        <input type="text" class="form-control" id="" name=""
+                            value="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nomre de casier </label>
+                        <input type="text" class="form-control" id="" name=""
+                            value="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Quantité(casier)</label>
+                        <input type="text" class="form-control" id="" name=""
+                            value="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Prix(casier)</label>
                         <input type="text" class="form-control" id="" name=""
                             value="" required>
                     </div>

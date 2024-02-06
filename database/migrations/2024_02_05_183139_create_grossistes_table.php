@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('grossistes', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('email')->unique();
-            $table->string('password', 60); // Utilisez 60 pour le champ de mot de passe
-            $table->string('adresse')->nullable();
-            $table->string('telephone')->nullable();
-            $table->rememberToken();
+            $table->String("nom");
+            $table->String("adresse");
+            $table->String("telephone");
+            $table->String("email");
+            $table->String("motPasse");
             $table->timestamps();
         });
     }
@@ -28,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
         Schema::dropIfExists('grossistes');
     }
 };
