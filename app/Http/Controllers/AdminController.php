@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grossiste;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -30,14 +31,15 @@ class AdminController extends Controller
         ];
             // dd($credetials);
         if (Auth::attempt($credetials)) {
-            return redirect('/admin/acceuil')->with('success', 'connexion réussi');
+            return view("Admin.home");
         }
 
         return back()->with('error', 'Email ou mot de passe incorrect');
     }
 
     public function acceuil(){
-        return view('adminSite.index');
+        $categories = Categories::all();
+        return view('adminSite.index', compact('categories'));
     }
 
     public function mes_commandes(){
@@ -55,11 +57,11 @@ class AdminController extends Controller
         $grossiste->adresse = $request->adresse;
         $grossiste->telephone = $request->telephone;
         $grossiste->email = $request->email;
-        $grossiste->motPasse = Hash::make($request->motPasse);            
+        $grossiste->password = Hash::make($request->motPasse);            
         
         $grossiste->save();
 
-        return redirect('/admin/acceuil')->with('success', 'inscription réussie');
+        return redirect('/admin/login')->with('success', 'inscription réussie');
     }
 
 

@@ -24,12 +24,14 @@
                 {{ Session::get('error')}}
             </div>
         @endif
-			<span>
-				Vous êtes un client? <a href="{{route('acceuilclient')}}">Cliquez-ici</a></span>
-			<div class="signup">
+			<span style="background-color: white;">
+				 __Vous êtes un client? <a href="{{route('acceuilclient')}}">__Cliquez-ici</a>
+				<span>_page client.</span>
+			</span>
+			<div class="signup" >
 				<form class="signUpform" action="{{ route('adminSignUp') }}" method="POST">
 					@csrf
-					<label for="chk" aria-hidden="true">S'inscrire</label>
+					<label for="chk" aria-hidden="true" style="margin-bottom: -10px;">S'inscrire</label>
 					<input type="text" name="nom" placeholder="Nom" required="">
 					<input type="text" name="telephone" placeholder="Telephone" required="">
 					<input type="email" name="email" placeholder="Email" required="">

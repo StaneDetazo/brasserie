@@ -51,7 +51,7 @@ route::group(['middleware' => 'auth'], function () {
     Route::post('/admin/signup', [AdminController::class, 'signUp'])->name('adminSignUp');
     Route::get('/admin/login', [AdminController::class, 'loginPage'])->name('loginPage');
     Route::post('/admin/login', [AdminController::class, 'login'])->name('adminLogin');
-    Route::get('/admin/acceuil', [AdminController::class, 'acceuil'])->name('adminAcceuil');
+    Route::get('/admin/acceuil', [AdminController::class, 'index'])->name('adminAcceuil');
     Route::get('/admin/commandes', [AdminController::class, 'mes_commandes'])->name('mesCommandes');
     Route::get('/admin/addProduct', [AdminController::class, 'ajouter_produit'])->name('addProduct');
 
