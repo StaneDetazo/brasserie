@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grossiste;
+use App\Models\Produits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+    private $folder = "boisson";
     
     public function index() {
         return view('Admin.home');
@@ -46,6 +49,20 @@ class AdminController extends Controller
 
     public function ajouter_produit(){
         return view('adminSite.produits');
+    }
+
+    public function create_product(Request $request){
+        $product = new Produits();
+
+        $product->libelle_produit = $request->libelle_produit;
+        $product->prix_produit = $request->prix_produit;
+        $product->categorie_produit = $request->categorie_produit;
+
+        $org_name = $request->file('image');
+        $product->image = saveImage($org_name,$this->folder);
+
+        $product->save();
+
     }
     
     public function signUp(Request $request){

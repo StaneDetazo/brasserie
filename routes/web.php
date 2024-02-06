@@ -54,6 +54,7 @@ route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/acceuil', [AdminController::class, 'acceuil'])->name('adminAcceuil');
     Route::get('/admin/commandes', [AdminController::class, 'mes_commandes'])->name('mesCommandes');
     Route::get('/admin/addProduct', [AdminController::class, 'ajouter_produit'])->name('addProduct');
+    Route::post('/admin/createProduct', [AdminController::class, 'create_product'])->name('createProduct');
 
 
 
